@@ -8,11 +8,11 @@ const Detalle = ({ receive, amount, comision, tipoPago, tasa }) => {
         <DetalleInfo
           title="Cobrás"
           primaryValue={amount !== "" ? "$" + formatearNumeros(amount) : "0"}
-          className={"none"}
+         
         />
         <DetalleInfo
           title="Comisión"
-          primaryValue={"-$" + comision}
+          primaryValue={"$" +comision}
           leyendaDetalle={
             tipoPago === "" ? (
               <div className="gris">Tasa por método de pago: 0% + IVA.</div>
