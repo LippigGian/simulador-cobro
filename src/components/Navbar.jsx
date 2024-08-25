@@ -1,6 +1,8 @@
+import { X } from 'lucide-react';
+
 export default function Navbar() {
   return (
-    <nav className=" bg-[#F5F5F5]   border-border p-4">
+    <nav className="bg-[#F5F5F5] border-border p-4">
       <div className="maxWidth container mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-4">
           <img
@@ -16,7 +18,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            X
+            <X size={24} /> 
           </a>
         </div>
       </div>

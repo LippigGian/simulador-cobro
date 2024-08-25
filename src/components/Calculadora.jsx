@@ -92,7 +92,7 @@ const Calculadora = ({
           }
           options={typePaymentOptions}
         ></Selector>
-        {methodPayment !== "5" && cuotas ? (
+        {cuotas ? (
           <>
             <Selector
               label="Cantidad de cuotas"

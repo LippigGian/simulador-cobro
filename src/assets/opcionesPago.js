@@ -1,29 +1,29 @@
 // paymentOptions.js
 export const paymentMethodOptions = [
   { value: "1", label: "QR" },
-  { value: "2", label: "Tienda online" },
-  { value: "3", label: "Link de pago" },
-  { value: "4", label: "Nave Point" },
-  { value: "5", label: "Cuotas sin tarjeta" },
+  { value: "2", label: "SmartPos" },
+  { value: "3", label: "Lector Mini" },
+  { value: "4", label: "Link de pago" },
+  { value: "5", label: "Api de Cobro" }, //Este era cobro sin tarjeta
+  { value: "6", label: "Tiendanube" },
+  { value: "7", label: "Woocommerce" },
 ];
 
 // Mapeo de methodPayment a posibles typePayment
 export const paymentTypeOptions = {
   1: [
-    { value: "0", label: "Ej. Tarjeta de débito", disable: true },
+    { value: "0", label: "Seleccione una opción", disable: true },
     { value: "1", label: "Dinero en cuenta" },
     { value: "2", label: "Tarjeta de débito" },
     { value: "3", label: "Tarjeta de crédito", isCreditCard: true },
   ],
   2: [
-    { value: "0", label: "Ej. Tarjeta de débito", disable: true },
-    { value: "1", label: "Dinero en cuenta" },
+    { value: "0", label: "Seleccione una opción", disable: true },
     { value: "2", label: "Tarjeta de débito" },
     { value: "3", label: "Tarjeta de crédito", isCreditCard: true },
   ],
   3: [
-    { value: "0", label: "Ej. Tarjeta de débito", disable: true },
-    { value: "1", label: "Dinero en cuenta" },
+    { value: "0", label: "Seleccione una opción", disable: true },
     { value: "2", label: "Tarjeta de débito" },
     { value: "3", label: "Tarjeta de crédito", isCreditCard: true },
   ],
@@ -34,9 +34,22 @@ export const paymentTypeOptions = {
   ],
   5: [
     { value: "0", label: "Seleccione una opción", disable: true },
-    { value: "1", label: "Cuotas sin interes" ,isCreditCard: true }
+    { value: "1", label: "Tarjeta de débito" },
+    { value: "2", label: "Tarjeta de crédito", isCreditCard: true },
+  ],
+  6: [
+    { value: "0", label: "Seleccione una opción", disable: true },
+    { value: "1", label: "Tarjeta de débito" },
+    { value: "2", label: "Tarjeta de crédito", isCreditCard: true },
+  ],
+  7: [
+    { value: "0", label: "Seleccione una opción", disable: true },
+    { value: "1", label: "Tarjeta de débito" },
+    { value: "2", label: "Tarjeta de crédito", isCreditCard: true },
   ],
 };
+
+
 
 //Opciones de cuotas
 export const installmentsOptions = [

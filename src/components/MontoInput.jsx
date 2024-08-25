@@ -13,7 +13,7 @@ const MontoInput = ({ label, amount, onChange, className }) => (
         const { floatValue } = values;
         onChange({ target: { value: floatValue } });  // Ajustar para que funcione con onChange
       }}
-      className="input rounded-md border-b border-gray-300 px-3 py-2 text-sm w-auto titulo_input" 
+      className="input rounded-md border-b border-gray-300 px-3 py-2 text-sm w-auto titulo_input box-content" 
       prefix=" $ "/>
   </div>
 );

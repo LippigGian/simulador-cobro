@@ -21,7 +21,7 @@ const DetalleInfo = ({
         </div>
       ) : null}
 
-      <div>
+      <div className="flex flex-col justify-center">
         <span className="primaryValue">{primaryValue}</span>
         {additionalContent && <>{additionalContent}</>}
         {secondaryValue ? <span>{secondaryValue}</span> : null}

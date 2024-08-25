@@ -15,7 +15,7 @@ function Simulador() {
   //Metodo de pago
   const [methodPayment, setMethodPayment] = useState("1");
   //Metodo de cobro
-  const [typePayment, setTypePayment] = useState("1");
+  const [typePayment, setTypePayment] = useState("0");
   //Dinero que voy a recibir
   const [receive, setReceive] = useState(0);
   //Comision en $
@@ -105,18 +105,12 @@ function Simulador() {
           ></Detalle>
         </div>
         <div className="simuladorContainer_cuotas">
-          {cantidadCuotas && cuotas && methodPayment != "5" ? (
+          {cantidadCuotas && cuotas ? (
             <DetalleInfo
               className={"simuladorContainer_cuotas_detalle "}
               primaryValue={`Conocé cuánto pagará en total tu cliente en cuotas. `}
               secondaryValue={`Pagará $${finalAmount} (${tasaCuotas}%) + IVA según la tasa de financiación
                 (CFT).`}
-            />
-          ) : null}
-          {methodPayment === "5" && cuotas ? (
-            <DetalleInfo
-              className={"simuladorContainer_cuotas_detalle "}
-              primaryValue={`Pueden pagar en 3 cuotas sin interés y sin tarjeta solo las personas que tengan cuenta en Galicia.`}
             />
           ) : null}
         </div>
@@ -126,3 +120,19 @@ function Simulador() {
 }
 
 export default Simulador;
+{/* <div className="simuladorContainer_cuotas">
+{cantidadCuotas && cuotas && methodPayment != "5" ? (
+  <DetalleInfo
+    className={"simuladorContainer_cuotas_detalle "}
+    primaryValue={`Conocé cuánto pagará en total tu cliente en cuotas. `}
+    secondaryValue={`Pagará $${finalAmount} (${tasaCuotas}%) + IVA según la tasa de financiación
+      (CFT).`}
+  />
+) : null}
+{methodPayment === "5" && cuotas ? (
+  <DetalleInfo
+    className={"simuladorContainer_cuotas_detalle "}
+    primaryValue={`Pueden pagar en 3 cuotas sin interés y sin tarjeta solo las personas que tengan cuenta en Galicia.`}
+  />
+) : null}
+</div> */}

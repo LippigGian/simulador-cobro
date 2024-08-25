@@ -1,3 +1,17 @@
+/* Container del input del monto */
+.simuladorContainer_Card_inputMonto{
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Input del monto */
+.simuladorContainer_Card_inputMonto input{
+
+  font-size: 30px;
+  width: 100%;
+  align-self: center;
+}
 .maxWidth {
   max-width: 950px;
 }
@@ -32,10 +46,7 @@
 }
 /* Query exclusivo para que el input no se rompa */
 @media (min-width: 300px) {
-  .simuladorContainer_Card_inputMonto {
-    display: flex;
-    flex-direction: row;
-  }
+
   .simuladorContainer_cuotas_detalle {
     margin: 20px;
     min-width: 55vw;
@@ -109,6 +120,10 @@
 
 /* Estilos para pantallas de 768px y mayores */
 @media (min-width: 768px) {
+  .simuladorContainer_Card_inputMonto {
+    display: flex;
+    flex-direction: row;
+  }
   .simuladorContainer_card {
     margin: 20px;
   }
