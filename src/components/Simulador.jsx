@@ -104,17 +104,18 @@ function Simulador() {
             tasa={tasa}
           ></Detalle>
         </div>
-        <div className="simuladorContainer_cuotas">
+       
           {cantidadCuotas && cuotas ? (
+             <div className="simuladorContainer_cuotas simuladorContainer_cuotas_detalle">
             <DetalleInfo
-              className={"simuladorContainer_cuotas_detalle "}
               primaryValue={`Conocé cuánto pagará en total tu cliente en cuotas. `}
               secondaryValue={`Pagará $${finalAmount} (${tasaCuotas}%) + IVA según la tasa de financiación
                 (CFT).`}
             />
+                  </div>
           ) : null}
         </div>
-      </div>
+
     </>
   );
 }
