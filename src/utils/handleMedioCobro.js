@@ -7,14 +7,16 @@ const handleMedioCobro = (
   setCuotas,
   setCantidadCuotas,
   setTipoPago,
-  setTasa
+  setTasa,
+  setTasaCuotas
 ) => {
   setMethodPayment(value);
   setTipoPago("");
   setTasa(0);
   setTypePayment(null);
   setCuotas(false);
-  setCantidadCuotas("1");
+  setCantidadCuotas(0);
+  setTasaCuotas("0.00")
 };
 
 export default handleMedioCobro;

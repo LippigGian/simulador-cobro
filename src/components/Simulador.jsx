@@ -65,6 +65,7 @@ function Simulador() {
     methodPayment,
     plazoAcreditacion,
     tasaPlazoAcreditacion,
+    tasaCuotas
   ]);
 
   // Obtener las opciones de typePayment según el methodPayment seleccionado

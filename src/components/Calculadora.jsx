@@ -67,7 +67,8 @@ const Calculadora = ({
               setCuotas,
               setCantidadCuotas,
               setTipoPago,
-              setTasa
+              setTasa,
+              setTasaCuotas
             )
           }
           options={paymentMethodOptions}
@@ -86,8 +87,8 @@ const Calculadora = ({
               methodPayment,
               setTipoPago,
               setCuotas,
-              setTasaCuotas,
               setCantidadCuotas,
+              setTasaCuotas,
               setPlazoAcreditacion
             )
           }

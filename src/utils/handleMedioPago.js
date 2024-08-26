@@ -19,6 +19,8 @@ const handleMedioPago = (
   selectedOption.isCreditCard
     ? setCuotas(true)
     : (setCuotas(false), setPlazoAcreditacion("1"));
+  setCantidadCuotas("1");
+  setTasaCuotas("0.00");
 };
 
 export default handleMedioPago;
