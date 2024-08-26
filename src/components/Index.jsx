@@ -4,7 +4,7 @@ const Index = () => {
   return (
     <>
       <div className="indexContainer">
-        <div className="maxWidth container mx-auto flex justify-between items-center mt-[30px]">
+        <div className="maxWidth sm:container mx-auto flex justify-between items-center mt-[30px]">
           <div className="indexGreetins">
             <div>
               <Button className="bg-primaryViolet text-white rounded-full w-[103px] h-[30px]">
@@ -19,7 +19,7 @@ const Index = () => {
           </div>
         </div>
         <div>
-          <p className="maxWidth container mx-auto flex justify-between items-center mt-[15px]">
+          <p className="maxWidth sm:container mx-auto flex justify-between items-center mt-[15px]">
             Simulá una venta y conocé cuánto dinero vas a recibir con los
             distintos medios de pago.
           </p>
