@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 
 const MontoInput = ({ label, amount, onChange, className }) => (
   <div className={className}>
-    <label className="titulo">{label}</label>
+    <label >{label}</label>
     <NumericFormat
       value={amount === 0 ? '' : amount} // Si amount es 0, muestra el placeholder
       thousandSeparator="."
