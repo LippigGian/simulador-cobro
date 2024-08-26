@@ -6,7 +6,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-  SelectLabel
+  SelectLabel,
 } from "@/components/ui/select";
 
 export default function Selector({
@@ -15,20 +15,24 @@ export default function Selector({
   onChange,
   value, // Valor actual seleccionado
   leyendaSelector,
-  placeholder
 }) {
   return (
     <div className="selectContainer">
       {label && <label>{label}</label>}
       <Select value={value} onValueChange={onChange}>
   <SelectTrigger className="select-trigger">
-    <SelectValue placeholder="Selecciona una opción">
-      {value ? options.find(option => option.value === value)?.label : label}
+    <SelectValue
+      placeholder="Selecciona una opción"
+      className="placeholder-custom" // Aplica la clase CSS personalizada
+    >
+      {value
+        ? options.find((option) => option.value === value)?.label
+        : "Seleccioná el "+label}
     </SelectValue>
   </SelectTrigger>
   <SelectContent className="select-content">
     <SelectGroup>
-    <SelectLabel>{label}</SelectLabel>
+      <SelectLabel>{label}</SelectLabel>
       {options.map((option) => (
         <SelectItem
           key={option.value}
@@ -44,8 +48,7 @@ export default function Selector({
 </Select>
 
 
-      <p className="leyenda">{leyendaSelector}</p>
+      {/* <p className="leyenda">{leyendaSelector}</p> */}
     </div>
   );
 }
-

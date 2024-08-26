@@ -18,12 +18,12 @@ export const paymentTypeOptions = {
   ],
   2: [
 
-    { value: "2", label: "Tarjeta de débito" },
+    { value: "1", label: "Tarjeta de débito" },
     { value: "3", label: "Tarjeta de crédito", isCreditCard: true },
   ],
   3: [
 
-    { value: "2", label: "Tarjeta de débito" },
+    { value: "1", label: "Tarjeta de débito" },
     { value: "3", label: "Tarjeta de crédito", isCreditCard: true },
   ],
   4: [

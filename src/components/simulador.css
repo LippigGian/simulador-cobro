@@ -1,14 +1,21 @@
+.containerGeneral{
+  margin-top: 20px;
+}
+
 /* Container del input del monto */
 .simuladorContainer_Card_inputMonto{
   display: flex;
   flex-direction: column;
 }
 
-
+.indexGreetins{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 /* Input del monto */
 .simuladorContainer_Card_inputMonto input{
   font-size: 14px;
-  font-weight: 600;
   width: 100%;
   align-self: center;
 }
@@ -145,7 +152,7 @@
     flex-direction: row;
     gap: 15px;
     justify-content: center;
-    margin: 50px;
+
   }
   .simuladorContainer_card {
 
