@@ -25,9 +25,10 @@ export default function Selector({
       placeholder="Selecciona una opción"
       className="placeholder-custom" // Aplica la clase CSS personalizada
     >
-      {value
-        ? options.find((option) => option.value === value)?.label
-        : "Seleccioná el "+label}
+{value
+  ? options.find((option) => option.value === value)?.label
+  : "Seleccioná el " + label.charAt(0).toLowerCase() + label.slice(1)}
+
     </SelectValue>
   </SelectTrigger>
   <SelectContent className="select-content">
