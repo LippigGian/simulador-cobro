@@ -17,10 +17,12 @@ export default function Selector({
   leyendaSelector,
 }) {
   return (
-    <div className="selectContainer">
+
+<div className="selectContainer">
       {label && <label>{label}</label>}
       <Select value={value} onValueChange={onChange}>
-  <SelectTrigger className="select-trigger">
+      <SelectTrigger className={value ? "select-trigger text-black" : "select-trigger text-gray-600"}>
+
     <SelectValue
       placeholder="Selecciona una opción"
       className="placeholder-custom" // Aplica la clase CSS personalizada
@@ -28,7 +30,6 @@ export default function Selector({
 {value
   ? options.find((option) => option.value === value)?.label
   : "Seleccioná el " + label.charAt(0).toLowerCase() + label.slice(1)}
-
     </SelectValue>
   </SelectTrigger>
   <SelectContent className="select-content">
@@ -47,9 +48,8 @@ export default function Selector({
     </SelectGroup>
   </SelectContent>
 </Select>
+</div>
 
 
-      {/* <p className="leyenda">{leyendaSelector}</p> */}
-    </div>
   );
 }
