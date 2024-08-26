@@ -47,8 +47,6 @@ export const paymentTypeOptions = {
   ],
 };
 
-
-
 //Opciones de cuotas
 export const installmentsOptions = [
   
