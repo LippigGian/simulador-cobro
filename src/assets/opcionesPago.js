@@ -11,39 +11,37 @@ export const paymentMethodOptions = [
 
 // Mapeo de methodPayment a posibles typePayment
 export const paymentTypeOptions = {
-  1: [
-    { value: "0", label: "Seleccione una opción", disable: true },
+  1: [ 
     { value: "1", label: "Dinero en cuenta" },
     { value: "2", label: "Tarjeta de débito" },
     { value: "3", label: "Tarjeta de crédito", isCreditCard: true },
   ],
   2: [
-    { value: "0", label: "Seleccione una opción", disable: true },
+
     { value: "2", label: "Tarjeta de débito" },
     { value: "3", label: "Tarjeta de crédito", isCreditCard: true },
   ],
   3: [
-    { value: "0", label: "Seleccione una opción", disable: true },
+
     { value: "2", label: "Tarjeta de débito" },
     { value: "3", label: "Tarjeta de crédito", isCreditCard: true },
   ],
   4: [
-    { value: "0", label: "Seleccione una opción", disable: true },
+
     { value: "1", label: "Tarjeta de débito" },
     { value: "2", label: "Tarjeta de crédito", isCreditCard: true },
   ],
   5: [
-    { value: "0", label: "Seleccione una opción", disable: true },
+
     { value: "1", label: "Tarjeta de débito" },
     { value: "2", label: "Tarjeta de crédito", isCreditCard: true },
   ],
   6: [
-    { value: "0", label: "Seleccione una opción", disable: true },
+
     { value: "1", label: "Tarjeta de débito" },
     { value: "2", label: "Tarjeta de crédito", isCreditCard: true },
   ],
   7: [
-    { value: "0", label: "Seleccione una opción", disable: true },
     { value: "1", label: "Tarjeta de débito" },
     { value: "2", label: "Tarjeta de crédito", isCreditCard: true },
   ],

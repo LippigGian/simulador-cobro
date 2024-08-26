@@ -48,7 +48,7 @@ const Calculadora = ({
       <div className="simuladorContainer_card">
         <MontoInput
           className="simuladorContainer_Card_inputMonto"
-          label="Cobrás"
+          label="Ingresá los datos de la venta"
           amount={amount}
           onChange={(e) => handleMonto(e, setAmount, formatearNumeros)}
         />

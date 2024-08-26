@@ -1,20 +1,24 @@
 import { NumericFormat } from 'react-number-format';
+import { Input } from "@/components/ui/input";
 
 const MontoInput = ({ label, amount, onChange, className }) => (
   <div className={className}>
     <label className="titulo">{label}</label>
     <NumericFormat
-      value={amount}
+      value={amount === 0 ? '' : amount} // Si amount es 0, muestra el placeholder
       thousandSeparator="."
       decimalSeparator=","
       decimalScale={2}
       fixedDecimalScale={true}
       onValueChange={(values) => {
         const { floatValue } = values;
-        onChange({ target: { value: floatValue } });  // Ajustar para que funcione con onChange
+        onChange({ target: { value: floatValue ?? 0 } }); // Si floatValue es undefined, establece amount a 0
       }}
-      className="input rounded-md border-b border-gray-300 px-3 py-2 text-sm w-auto titulo_input box-content" 
-      prefix=" $ "/>
+      customInput={Input}
+      placeholder="Ingresá el monto" // Placeholder visible cuando amount es 0
+      className=""
+      prefix={amount !== 0 ? " $ " : ""} // Oculta el prefijo si amount es 0
+    />
   </div>
 );
 

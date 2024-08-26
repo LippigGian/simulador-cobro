@@ -4,7 +4,7 @@ const Detalle = ({ receive, amount, comision, tipoPago, tasa }) => {
   return (
     <>
       <div className="simuladorContainer_card">
-        <label className="titulo">Detalle</label>
+        <label className="titulo">Detalle de la venta</label>
         <DetalleInfo
           title="Cobrás"
           primaryValue={amount !== "" ? "$" + formatearNumeros(amount) : "0"}

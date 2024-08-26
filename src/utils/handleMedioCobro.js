@@ -12,7 +12,7 @@ const handleMedioCobro = (
   setMethodPayment(value);
   setTipoPago("");
   setTasa(0);
-  setTypePayment("0");
+  setTypePayment(null);
   setCuotas(false);
   setCantidadCuotas("1");
 };

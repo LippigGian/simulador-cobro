@@ -11,11 +11,11 @@ import formatearNumeros from "../utils/formatearNumeros";
 
 function Simulador() {
   //Dinero que quiero cobrar
-  const [amount, setAmount] = useState(1000);
+  const [amount, setAmount] = useState(0);
   //Metodo de pago
-  const [methodPayment, setMethodPayment] = useState("1");
+  const [methodPayment, setMethodPayment] = useState(null);
   //Metodo de cobro
-  const [typePayment, setTypePayment] = useState("0");
+  const [typePayment, setTypePayment] = useState(null);
   //Dinero que voy a recibir
   const [receive, setReceive] = useState(0);
   //Comision en $
