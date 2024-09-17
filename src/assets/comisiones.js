@@ -1,7 +1,7 @@
 // Mapeo de comisiones basado en combinaciones de methodPayment y typePayment
 export const feePayment = {
   "1-1": 0.008, // QR + Dinero en cuenta
-  "1-2": 10, // QR + Tarjeta de débito
+  "1-2": 0.029, // QR + Tarjeta de débito
   "1-3": 0, // QR + Tarjeta de crédito
   "2-1": 0.029, // SmartPos  +Tarjeta de débito
   "2-2": 0, // SmartPos + Tarjeta de crédito
