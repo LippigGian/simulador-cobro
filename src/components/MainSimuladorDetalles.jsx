@@ -1,6 +1,6 @@
 import DetalleInfo from "./DetalleInfo";
 import formatearNumeros from "../utils/formatearNumeros";
-const MainSimuladorDetalles = ({ receive, monto, comision, tipoPago, tasa }) => {
+const MainSimuladorDetalles = ({ receive, monto, comision, labelPago, tasaComision }) => {
   return (
     <>
       <div className="simuladorContainer_card">
@@ -14,10 +14,10 @@ const MainSimuladorDetalles = ({ receive, monto, comision, tipoPago, tasa }) => 
           title="Comisión"
           primaryValue={"$" +comision}
           leyendaDetalle={
-            tipoPago === "" ? (
-              <div className="gris">Tasa por método de pago: 0% + IVA.</div>
+            labelPago === "" ? (
+              <div className="gris">Tasa por método de pago: 0%</div>
             ) : (
-              ` ${tipoPago} ${tasa} % + IVA`
+              ` ${labelPago} ${tasaComision} %`
             )
           }
         />

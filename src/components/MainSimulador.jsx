@@ -25,7 +25,7 @@ function MainSimulador() {
   //Comision en $
   const [comision, setComision] = useState(0);
   //Comision en %
-  const [tasa, setTasa] = useState(0);
+  const [tasaComision, setTasaComision] = useState(0);
   //Tipo de pago para mostrar detalle .label
   // const [tipoPago, setTipoPago] = useState("");
   const [labelPago, setLabelPago] = useState("");
@@ -46,13 +46,17 @@ function MainSimulador() {
 
   // // Calcular el total automáticamente cuando cambian amount, paymentType, methodPayment
   useEffect(() => {
+    // console.log("El medio de pago es: "+medioPago)
  const total = calculoDetalle(
+
   monto,
 
   //     typePayment,
   //     // methodPayment,
   comisionesMedioPago,
-  medioPago
+  medioPago,
+  setComision,
+  setTasaComision
   //     setTasa,
   //     tasaCuotas,
   //     setComision,
@@ -65,12 +69,14 @@ function MainSimulador() {
   //     formatearNumeros,
   //     tipoPago
   );
+  // console.log("el total es: "+total)
   setReceive(total);
   }, [
     monto,
     typePayment,
     // methodPayment,
     plazoAcreditacion,
+    medioPago,
     tasaPlazoAcreditacion,
     tasaCuotas
   ]);
@@ -103,10 +109,10 @@ function MainSimulador() {
           monto={monto}
           comision={comision}
           labelPago={labelPago}
+          tasaComision ={tasaComision}
           //  tipoPago={tipoPago}
-         tasa={tasa}
+       
         ></MainSimuladorDetalles>
-        <h1>Hola 2</h1>
       </Cards>
     </div>
     // <>

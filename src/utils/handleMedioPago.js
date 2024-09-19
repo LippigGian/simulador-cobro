@@ -18,9 +18,9 @@ const handleMedioPago = (
   const selectedOption = value.find(
     (option) => option.value === e)
   setLabelPago(selectedOption.label)
-  console.log("la opcion seleccionada es: " +selectedOption.label)
+  // console.log("la opcion seleccionada es: " +selectedOption.label)
   setMedioPago(selectedOption.value)
-  console.log(selectedOption)
+  // console.log(selectedOption)
   selectedOption.isCreditCard
     ? setCuotas(true)
     : setCuotas(false);
