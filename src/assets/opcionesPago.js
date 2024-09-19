@@ -1,4 +1,14 @@
 // paymentOptions.js
+
+
+// Opciones de método de pago
+
+export const OpcionesMediosPago = [
+  { value: "1", label: "Dinero en cuenta" },
+  { value: "2", label: "Tarjeta de débito" },
+  { value: "3", label: "Tarjeta de crédito", isCreditCard: true },
+];
+
 export const paymentMethodOptions = [
   { value: "1", label: "QR" },
   { value: "2", label: "SmartPos" },

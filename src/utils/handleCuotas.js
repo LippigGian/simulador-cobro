@@ -3,7 +3,7 @@ import formatearNumeros from "./formatearNumeros";
 const handleCuotas = (
   value,
   feeUser,
-  amount,
+  monto,
   setFinalAmount,
   setCantidadCuotas,
   setTasaCuotas

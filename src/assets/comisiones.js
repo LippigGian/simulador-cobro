@@ -1,4 +1,12 @@
 // Mapeo de comisiones basado en combinaciones de methodPayment y typePayment
+
+export const comisionesMedioPago = {
+  1: 0.008, //Dinero en cuenta
+  2: 0.029, //Tarjeta de débito
+  3: 0, //Dinero en cuenta
+}
+
+
 export const feePayment = {
   "1-1": 0.008, // QR + Dinero en cuenta
   "1-2": 0.029, // QR + Tarjeta de débito

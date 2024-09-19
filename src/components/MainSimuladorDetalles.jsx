@@ -1,13 +1,13 @@
 import DetalleInfo from "./DetalleInfo";
 import formatearNumeros from "../utils/formatearNumeros";
-const Detalle = ({ receive, amount, comision, tipoPago, tasa }) => {
+const MainSimuladorDetalles = ({ receive, monto, comision, tipoPago, tasa }) => {
   return (
     <>
       <div className="simuladorContainer_card">
         <label className="titulo">Detalle de la venta</label>
         <DetalleInfo
           title="Cobrás"
-          primaryValue={amount !== "" ? "$" + formatearNumeros(amount) : "0"}
+          primaryValue={monto !== "" ? "$" + formatearNumeros(monto) : "0"}
          
         />
         <DetalleInfo
@@ -38,4 +38,4 @@ const Detalle = ({ receive, amount, comision, tipoPago, tasa }) => {
     </>
   );
 };
-export default Detalle;
+export default MainSimuladorDetalles;

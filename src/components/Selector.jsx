@@ -20,6 +20,7 @@ export default function Selector({
 
 <div className="selectContainer">
       {label && <label>{label}</label>}
+      
       <Select value={value} onValueChange={onChange}>
       <SelectTrigger className={value ? "select-trigger text-black" : "select-trigger text-gray-600"}>
 
