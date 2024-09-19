@@ -1,22 +1,28 @@
 //Handle cuotas
 import formatearNumeros from "./formatearNumeros";
 const handleCuotas = (
-  value,
-  feeUser,
-  monto,
-  setFinalAmount,
-  setCantidadCuotas,
-  setTasaCuotas
+  e,
+  comisionesPorcuotas
+  // feeUser,
+  // monto,
+  // setFinalAmount,
+  // setCantidadCuotas,
+  // setTasaCuotas
 ) => {
-  const cuotas = value;
-  // console.log("Las cuotas: " + cuotas);
-  const fee = feeUser[cuotas] || 0;
+  const cuotas = e;
+
+  console.log("Las cuotas: " + cuotas);
+  const fee = comisionesPorcuotas[cuotas] || 0;
+  
+
+  console.log("la comision por cuotas es : "+ fee)
+
   // setFeeCuotas(parseFloat(fee));
 
-  const total = fee * amount + amount;
-  setFinalAmount(formatearNumeros(total));
-  setCantidadCuotas(cuotas);
-  setTasaCuotas((fee * 100).toFixed(2));
-};
+//   const total = fee * amount + amount;
+//   setFinalAmount(formatearNumeros(total));
+//   setCantidadCuotas(cuotas);
+//   setTasaCuotas((fee * 100).toFixed(2));
+ };
 
 export default handleCuotas;

@@ -4,7 +4,7 @@ import MainSimuladorDetalles from "./MainSimuladorDetalles";
 import "./mainSimulador.css";
 import { useState, useEffect } from "react";
 import calculoDetalle from "../utils/calculoDetalle";
-import { feePayment, feeAcreditacion, comisionesMedioPago } from "../assets/comisiones";
+import { feePayment, feeAcreditacion, comisionesMedioPago, comisionesPorcuotas } from "../assets/comisiones";
 import { paymentTypeOptions, OpcionesMediosPago } from "../assets/opcionesPago";
 import DetalleInfo from "./DetalleInfo";
 import formatearNumeros from "../utils/formatearNumeros";
@@ -101,6 +101,7 @@ function MainSimulador() {
           setCuotas={setCuotas}
           cantidadCuotas={cantidadCuotas} 
           setCantidadCuotas={setCantidadCuotas}
+          comisionesPorcuotas={comisionesPorcuotas}
         ></MainSimuladorInputs>
       </Cards>
       <Cards>

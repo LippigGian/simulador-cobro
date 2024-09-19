@@ -3,7 +3,7 @@ import Selector from "./Selector";
 import MontoInput from "./MontoInput";
 
 //Comisiones por cobro y por cobro en cuotas
-import { feeUser, feeAcreditacion, comisionesMedioPago } from "../assets/comisiones";
+import { feeAcreditacion, comisionesMedioPago, } from "../assets/comisiones";
 
 //Medios de pago, tipos de pagos y cuotas
 import {
@@ -39,6 +39,7 @@ const MainSimuladorInputs = ({
   cuotas,
   setCuotas,
   cantidadCuotas,
+  comisionesPorcuotas
   // setCantidadCuotas,
   // typePayment,
   // typePaymentOptions,
@@ -140,16 +141,17 @@ const MainSimuladorInputs = ({
               name="cantidadCuotas"
               value={cantidadCuotas}
               leyendaSelector="Las cuotas corren a cargo del cliente."
-              // onChange={(e) =>
-              //   handleCuotas(
-              //     e,
-              //     feeUser,
-              //     monto,
-              //     setFinalAmount,
-              //     setCantidadCuotas,
-              //     setTasaCuotas
-              //   )
-              // }
+              onChange={(e) =>
+                handleCuotas(
+                  e,
+                  comisionesPorcuotas
+                  // feeUser,
+                  // monto,
+                  // setFinalAmount,
+                  // setCantidadCuotas,
+                  // setTasaCuotas
+                )
+              }
               options={installmentsOptions}
             />
             {/* <Selector

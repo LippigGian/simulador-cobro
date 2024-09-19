@@ -26,7 +26,7 @@ export const feePayment = {
 };
 
 //Mapeo de comisiones a los usuarios por pago en cuotas
-export const feeUser = {
+export const comisionesPorcuotas = {
   1: 0, //1 cuota
   2: 0.1444, //3 cuotas
   3: 0.2346, //6 cuotas
