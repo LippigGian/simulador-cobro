@@ -2,7 +2,8 @@
 import formatearNumeros from "./formatearNumeros";
 const handleCuotas = (
   e,
-  comisionesPorcuotas
+  comisionesPorcuotas,
+  setTasaPagoCuotas
   // feeUser,
   // monto,
   // setFinalAmount,
@@ -14,7 +15,7 @@ const handleCuotas = (
   console.log("Las cuotas: " + cuotas);
   const fee = comisionesPorcuotas[cuotas] || 0;
   
-
+  setTasaPagoCuotas((fee * 100).toFixed(2));
   console.log("la comision por cuotas es : "+ fee)
 
   // setFeeCuotas(parseFloat(fee));

@@ -2,10 +2,11 @@
 const handlePlazoAcreditacion = (
   value,
   setPlazoAcreditacion,
-  feeAcreditacion,
+  comisionesPorAcreditacion,
   setTasaPlazoAcreditacion
 ) => {
-  const fee = feeAcreditacion[value];
+  const fee = comisionesPorAcreditacion[value];
+  // console.log("El plazo de acreditacion es: " + fee);
   setTasaPlazoAcreditacion(fee);
   setPlazoAcreditacion(value);
 };

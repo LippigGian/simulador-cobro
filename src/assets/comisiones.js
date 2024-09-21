@@ -3,7 +3,7 @@
 export const comisionesMedioPago = {
   1: 0.008, //Dinero en cuenta
   2: 0.029, //Tarjeta de débito
-  3: 0, //Dinero en cuenta
+  3: 0.049, //Tarjeta de crédito
 }
 
 
@@ -38,7 +38,7 @@ export const comisionesPorcuotas = {
   9: 0.2107, //12 cuotas simple
 };
 //Mapeo de comisiones de plazo de acreditación
-export const feeAcreditacion = {
+export const comisionesPorAcreditacion = {
   1: 0.0490, //2 días para acreditar
   2: 0.0295 //10 días para acreditar
 };

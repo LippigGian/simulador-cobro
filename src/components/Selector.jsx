@@ -9,48 +9,54 @@ import {
   SelectLabel,
 } from "@/components/ui/select";
 
+// Componente Selector
 export default function Selector({
-  options,
-  label,
-  onChange,
-  value, // Valor actual seleccionado
-  leyendaSelector,
+  label,      // Etiqueta para el select
+  name,       // Nombre del input
+  options,    // Opciones que vienen en el array tipoOpcionesMedioPago
+  onChange,   // Función a ejecutar al cambiar la opción seleccionada
+  valorInicial
 }) {
+  const [selectedValue, setSelectedValue] = React.useState(valorInicial || ""); // Estado para la opción seleccionada
+
+  // Manejar el cambio de valor en el select
+  const handleSelectChange = (value) => {
+    setSelectedValue(value);  // Actualiza el estado local
+    onChange(value);          // Llama a la función onChange pasada como prop
+  };
+
   return (
+    <div className="selectContainer mt-[15px] mb-[15px]">
+      {/* Etiqueta */}
+      {label && <label htmlFor={name}>{label}</label>}
 
-<div className="selectContainer">
-      {label && <label>{label}</label>}
-      
-      <Select value={value} onValueChange={onChange}>
-      <SelectTrigger className={value ? "select-trigger text-black" : "select-trigger text-gray-600"}>
+      {/* Componente Select */}
+      <Select value={selectedValue} onValueChange={handleSelectChange}>
+        <SelectTrigger className={selectedValue ? "text-black" : "text-gray-600"}>
+          {/* Valor seleccionado o placeholder */}
+          <SelectValue placeholder="Seleccioná el medio de pago">
+            {selectedValue
+              ? options.find((option) => option.value === selectedValue)?.label
+              : "Seleccioná el medio de pago"}
+          </SelectValue>
+        </SelectTrigger>
 
-    <SelectValue
-      placeholder="Selecciona una opción"
-      className="placeholder-custom" // Aplica la clase CSS personalizada
-    >
-{value
-  ? options.find((option) => option.value === value)?.label
-  : "Seleccioná el " + label.charAt(0).toLowerCase() + label.slice(1)}
-    </SelectValue>
-  </SelectTrigger>
-  <SelectContent className="select-content">
-    <SelectGroup>
-      <SelectLabel>{label}</SelectLabel>
-      {options.map((option) => (
-        <SelectItem
-          key={option.value}
-          value={option.value}
-          disabled={option.disable}
-          className={value === option.value ? "selected-option" : ""}
-        >
-          {option.label}
-        </SelectItem>
-      ))}
-    </SelectGroup>
-  </SelectContent>
-</Select>
-</div>
-
-
+        {/* Contenido del Select con las opciones */}
+        <SelectContent>
+          <SelectGroup>
+            <SelectLabel>{label}</SelectLabel>
+            {options.map((option) => (
+              <SelectItem
+                key={option.value}
+                value={option.value}
+                className={selectedValue === option.value ? "selected-option" : ""}
+              >
+                {option.label}
+              </SelectItem>
+            ))}
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+    </div>
   );
 }

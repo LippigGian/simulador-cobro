@@ -1,9 +1,9 @@
 import DetalleInfo from "./DetalleInfo";
 import formatearNumeros from "../utils/formatearNumeros";
-const MainSimuladorDetalles = ({ receive, monto, comision, labelPago, tasaComision }) => {
+const MainSimuladorDetalles = ({ montoARecibir, monto, comision, labelPago, tasaComision }) => {
   return (
     <>
-      <div className="simuladorContainer_card">
+      <div className="">
         <label className="titulo">Detalle de la venta</label>
         <DetalleInfo
           title="Cobrás"
@@ -17,22 +17,21 @@ const MainSimuladorDetalles = ({ receive, monto, comision, labelPago, tasaComisi
             labelPago === "" ? (
               <div className="gris">Tasa por método de pago: 0%</div>
             ) : (
-              ` ${labelPago} ${tasaComision} %`
+              ` ${labelPago} ${tasaComision} % + IVA`
             )
           }
         />
 
         <DetalleInfo
           title={"Recibis"}
-          secondaryValue={" $" + receive}
+          secondaryValue={" $" + montoARecibir}
           className={"recibis"}
         ></DetalleInfo>
-        <hr></hr>
+         <hr className="mt-[20px]"></hr>
         <DetalleInfo
           title={" "}
           leyendaDetalle={
-            "Estos valores no incluyen IVA ni otros impuestos que puedan corresponder. Tampoco contempla las promociones o condiciones especiales que puedan aplicar."
-          }
+"Los valores presentados en esta simulación son estimativos y podrían no reflejar todos los impuestos aplicables a la transacción. Tampoco se han considerado posibles promociones o condiciones especiales que puedan afectar el precio final."          }
         ></DetalleInfo>
       </div>
     </>

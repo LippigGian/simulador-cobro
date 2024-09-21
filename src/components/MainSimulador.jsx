@@ -4,7 +4,7 @@ import MainSimuladorDetalles from "./MainSimuladorDetalles";
 import "./mainSimulador.css";
 import { useState, useEffect } from "react";
 import calculoDetalle from "../utils/calculoDetalle";
-import { feePayment, feeAcreditacion, comisionesMedioPago, comisionesPorcuotas } from "../assets/comisiones";
+import { feePayment, comisionesMedioPago, comisionesPorcuotas, comisionesPorAcreditacion } from "../assets/comisiones";
 import { paymentTypeOptions, OpcionesMediosPago } from "../assets/opcionesPago";
 import DetalleInfo from "./DetalleInfo";
 import formatearNumeros from "../utils/formatearNumeros";
@@ -21,7 +21,7 @@ function MainSimulador() {
   //Medio de pago
   const [medioPago, setMedioPago] = useState(null);
   //Dinero que voy a recibir
-  const [receive, setReceive] = useState(0);
+  const [montoARecibir, setMontoARecibir] = useState(0);
   //Comision en $
   const [comision, setComision] = useState(0);
   //Comision en %
@@ -32,7 +32,7 @@ function MainSimulador() {
   //Plazo de acreditación
   const [plazoAcreditacion, setPlazoAcreditacion] = useState("1");
   //Comision por plazo de acreditacion en %
-  const [tasaPlazoAcreditacion, setTasaPlazoAcreditacion] = useState(0);
+  const [tasaPlazoAcreditacion, setTasaPlazoAcreditacion] = useState(0.049);
 
   //CUOTAS
   //Determinar si existen cuotas o no
@@ -40,9 +40,9 @@ function MainSimulador() {
   //Cantidad de cuotas
   const [cantidadCuotas, setCantidadCuotas] = useState("1");
   //Tasa de las cuotas en % para el cliente
-  const [tasaCuotas, setTasaCuotas] = useState("0.00");
+  const [tasaPagoCuotas, setTasaPagoCuotas] = useState("0.00");
   //Monto final que pagará el cliente en cuotas con intereses
-  const [finalAmount, setFinalAmount] = useState("");
+  const [montoPagoCuotas, setMontoPagoCuotas] = useState("");
 
   // // Calcular el total automáticamente cuando cambian amount, paymentType, methodPayment
   useEffect(() => {
@@ -56,112 +56,82 @@ function MainSimulador() {
   comisionesMedioPago,
   medioPago,
   setComision,
-  setTasaComision
-  //     setTasa,
-  //     tasaCuotas,
-  //     setComision,
-  //     setFinalAmount,
-  //     plazoAcreditacion,
-  //     feeAcreditacion,
-  //     setPlazoAcreditacion,
-  //     setTasaPlazoAcreditacion,
-  //     cuotas,
-  //     formatearNumeros,
-  //     tipoPago
+  setTasaComision,
+  tasaPagoCuotas,
+  setMontoPagoCuotas,
+  plazoAcreditacion,
+  tasaPlazoAcreditacion,
   );
   // console.log("el total es: "+total)
-  setReceive(total);
+  setMontoARecibir(total);
   }, [
     monto,
-    typePayment,
-    // methodPayment,
     plazoAcreditacion,
     medioPago,
     tasaPlazoAcreditacion,
-    tasaCuotas
+    tasaPagoCuotas
   ]);
 
   // Obtener las opciones de typePayment según el methodPayment seleccionado
   // const typePaymentOptions = paymentTypeOptions[methodPayment] || [];
   const tipoOpcionesMedioPago = OpcionesMediosPago || [];
+  console.log(cuotas)
   return (
-    <div className="flex justify-center gap-5">
-      <Cards>
-        <MainSimuladorInputs
-          monto={monto}
-          setMonto={setMonto}
-          formatearNumeros={formatearNumeros}
-          medioPago={medioPago}
-          setMedioPago={setMedioPago}
-          OpcionesMediosPago={OpcionesMediosPago}
-          tipoOpcionesMedioPago={tipoOpcionesMedioPago}
-          labelPago = {labelPago}
-          setLabelPago={setLabelPago}
-          cuotas={cuotas}
-          setCuotas={setCuotas}
-          cantidadCuotas={cantidadCuotas} 
-          setCantidadCuotas={setCantidadCuotas}
-          comisionesPorcuotas={comisionesPorcuotas}
-        ></MainSimuladorInputs>
-      </Cards>
-      <Cards>
-        <MainSimuladorDetalles
-          receive={receive}
-          monto={monto}
-          comision={comision}
-          labelPago={labelPago}
-          tasaComision ={tasaComision}
-          //  tipoPago={tipoPago}
-       
-        ></MainSimuladorDetalles>
-      </Cards>
-    </div>
-    // <>
-    //   <div className="containerGeneral">
-    //     <div className="simuladorContainer">
-    //       <MainSimuladorInputs
-    //         amount={amount}
-    //         // methodPayment={methodPayment}
-    //         setAmount={setAmount}
-    //         // setMethodPayment={setMethodPayment}
-    //         setTypePayment={setTypePayment}
-    //         setCuotas={setCuotas}
-    //         setCantidadCuotas={setCantidadCuotas}
-    //         typePayment={typePayment}
-    //         typePaymentOptions={typePaymentOptions}
-    //         setTipoPago={setTipoPago}
-    //         cuotas={cuotas}
-    //         cantidadCuotas={cantidadCuotas}
-    //         setFinalAmount={setFinalAmount}
-    //         setTasa={setTasa}
-    //         setTasaCuotas={setTasaCuotas}
-    //         receive={receive}
-    //         plazoAcreditacion={plazoAcreditacion}
-    //         setPlazoAcreditacion={setPlazoAcreditacion}
-    //         setTasaPlazoAcreditacion={setTasaPlazoAcreditacion}
-    //         formatearNumeros={formatearNumeros}
-    //       ></MainSimuladorInputs>
-    //       <MainSimuladorDetalles
-    //         receive={receive}
-    //         amount={amount}
-    //         comision={comision}
-    //         tipoPago={tipoPago}
-    //         tasa={tasa}
-    //       ></MainSimuladorDetalles>
-    //     </div>
+<div className="flex justify-center mb-[40px]">
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-[25px] lg:gap-[15px] max-w-[864px] w-full m-[20px]">
+<Cards>
+      <MainSimuladorInputs
+        monto={monto}
+        setMonto={setMonto}
+        formatearNumeros={formatearNumeros}
+        medioPago={medioPago}
+        setMedioPago={setMedioPago}
+        OpcionesMediosPago={OpcionesMediosPago}
+        tipoOpcionesMedioPago={tipoOpcionesMedioPago}
+        labelPago={labelPago}
+        setLabelPago={setLabelPago}
+        cuotas={cuotas}
+        setCuotas={setCuotas}
+        cantidadCuotas={cantidadCuotas}
+        setCantidadCuotas={setCantidadCuotas}
+        comisionesPorcuotas={comisionesPorcuotas}
+        setTasaPagoCuotas={setTasaPagoCuotas}
+        setTasaPlazoAcreditacion={setTasaPlazoAcreditacion}
+        setPlazoAcreditacion={setPlazoAcreditacion}
+        montoARecibir={montoARecibir}
+        setTasaComision={setTasaComision}
+      />
+    </Cards>
 
-    //       {cantidadCuotas && cuotas ? (
-    //          <div className="simuladorContainer_cuotas simuladorContainer_cuotas_detalle">
-    //         <DetalleInfo
-    //           primaryValue={`Conocé cuánto pagará en total tu cliente en cuotas. `}
-    //           secondaryValue={`Pagará $${finalAmount} (${tasaCuotas}%) + IVA según la tasa de financiación
-    //             (CFT).`}
-    //         />
-    //               </div>
-    //       ) : null}
-    //     </div>
+    <Cards>
+      <MainSimuladorDetalles
+        montoARecibir={montoARecibir}
+        monto={monto}
+        comision={comision}
+        labelPago={labelPago}
+        tasaComision={tasaComision}
+      />
+    </Cards>
 
-    // </>
+    {cantidadCuotas && cuotas ? (
+      <div className="lg:col-span-2">
+<Cards className="md:p-[10px]">
+    <p>
+        {`Conocé cuánto pagará en total tu cliente en cuotas. `}
+    </p>
+    <p>
+        {`Pagará $${montoPagoCuotas} (${tasaPagoCuotas}%) + IVA según la tasa de financiación (CFT).`}
+    </p>
+    {/* <DetalleInfo
+        primaryValue={`Conocé cuánto pagará en total tu cliente en cuotas. `}
+        secondaryValue={`Pagará $${montoPagoCuotas} (${tasaPagoCuotas}%) + IVA según la tasa de financiación (CFT).`}
+    /> */}
+</Cards>
+      </div>
+    ) : null}
+  </div>
+</div>
+
   );
 }
 

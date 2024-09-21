@@ -1,36 +1,45 @@
 // handle medio de pago (dinero en cuenta, tarjeta debito, tarjeta credito)
 const handleMedioPago = (
    e,
-  value,
-  OpcionesMediosPago,
+   tipoOpcionesMedioPago,
   setMedioPago,
   setLabelPago,
+  setCuotas,
+  setCantidadCuotas,
+  setTasaPagoCuotas,
+  setPlazoAcreditacion,
+  setTasaComision,
+  setTasaPlazoAcreditacion
   // setTypePayment,
   // tipoOpcionesMedioPago,
   // methodPayment,
-  setCuotas
+
   // setCantidadCuotas,
   // setTasaCuotas,
   // setPlazoAcreditacion
 ) => {
 
 
-  const selectedOption = value.find(
+  const selectedOption = tipoOpcionesMedioPago.find(
     (option) => option.value === e)
   setLabelPago(selectedOption.label)
   // console.log("la opcion seleccionada es: " +selectedOption.label)
+  console.log(selectedOption.value)
   setMedioPago(selectedOption.value)
-  // console.log(selectedOption)
-  selectedOption.isCreditCard
-    ? setCuotas(true)
-    : setCuotas(false);
-
+  // setTasaComision(0)
+  
 
   // selectedOption.isCreditCard
   //   ? setCuotas(true)
-  //   : (setCuotas(false), setPlazoAcreditacion("1"));
-  // setCantidadCuotas("1");
-  // setTasaCuotas("0.00");
+  //   : setCuotas(false);
+
+selectedOption.isCreditCard ? console.log("es tarjeta de credito") : console.log("no es tarjeta de credito")
+
+  selectedOption.isCreditCard
+    ? (setCuotas(true) )
+    : (setCuotas(false), setPlazoAcreditacion("1"), setTasaPlazoAcreditacion(0.049), setTasaPagoCuotas("0.00"));
+  // setCantidadCuotas(1);
+  // setTasaPagoCuotas("0.00");
 };
 
 export default handleMedioPago;

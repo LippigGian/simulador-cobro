@@ -3,7 +3,10 @@ import Selector from "./Selector";
 import MontoInput from "./MontoInput";
 
 //Comisiones por cobro y por cobro en cuotas
-import { feeAcreditacion, comisionesMedioPago, } from "../assets/comisiones";
+import {
+  comisionesMedioPago,
+  comisionesPorAcreditacion,
+} from "../assets/comisiones";
 
 //Medios de pago, tipos de pagos y cuotas
 import {
@@ -11,7 +14,7 @@ import {
   paymentTypeOptions,
   installmentsOptions,
   plazoAcreditacionOption,
-  OpcionesMediosPago
+  OpcionesMediosPago,
 } from "../assets/opcionesPago";
 
 //Import de handles
@@ -23,7 +26,6 @@ import DetalleInfo from "./DetalleInfo";
 import handlePlazoAcreditacion from "../utils/handlePlazoAcreditacion";
 
 const MainSimuladorInputs = ({
-  // amount,
   monto,
   setMonto,
   formatearNumeros,
@@ -39,7 +41,13 @@ const MainSimuladorInputs = ({
   cuotas,
   setCuotas,
   cantidadCuotas,
-  comisionesPorcuotas
+  setCantidadCuotas,
+  comisionesPorcuotas,
+  setTasaPagoCuotas,
+  setTasaPlazoAcreditacion,
+  setPlazoAcreditacion,
+  montoARecibir,
+  setTasaComision,
   // setCantidadCuotas,
   // typePayment,
   // typePaymentOptions,
@@ -52,99 +60,55 @@ const MainSimuladorInputs = ({
   // plazoAcreditacion,
   // setPlazoAcreditacion,
   // setTasaPlazoAcreditacion,
-  
 }) => {
   return (
-    
-    // <>
-       <div className="simuladorContainer_card">
-       <label className="titulo">Ingresá los datos de la venta</label>
+    <>
+      <div className="w-full">
+        <label className="titulo">Ingresá los datos de la venta</label>
         <MontoInput
-           className="simuladorContainer_Card_inputMonto"
-           label="Monto"
-           monto={monto}
-           onChange={(e) => handleMonto(e, setMonto, formatearNumeros)}
+          className="mt-[15px] gap-[15px] flex flex-col"
+          label="Monto"
+          monto={monto}
+          onChange={(e) => handleMonto(e, setMonto, formatearNumeros)}
         />
         <Selector
-         label="Medio de pago"
-         name="medioPago"
-        options={tipoOpcionesMedioPago}
-        onChange={(e) =>
-                  handleMedioPago(
-                    e,
-                    OpcionesMediosPago,
-                    tipoOpcionesMedioPago,
-                    setMedioPago,
-                    setLabelPago,
-                    setCuotas
-                    // opcionesPago,
-                    // setTypePayment,
-                    // tipoOpcionesMedioPago,
-                    // methodPayment,
-                    // setCuotas,
-                    // setCantidadCuotas,
-                    // setTasaCuotas,
-                    // setPlazoAcreditacion
-                  )
-                }
-    >
+          label="Medio de pago"
+          name="medioPago"
+          options={tipoOpcionesMedioPago}
+          onChange={(e) =>
+            handleMedioPago(
+              e,
+              tipoOpcionesMedioPago,
+              setMedioPago,
+              setLabelPago,
+              setCuotas,
+              setCantidadCuotas,
+              setTasaPagoCuotas,
+              setPlazoAcreditacion,
+              setTasaComision,
+              setTasaPlazoAcreditacion
+              // opcionesPago,
+              // setTypePayment,
+              // tipoOpcionesMedioPago,
+              // methodPayment,
 
-        </Selector>
-
-         {/* <Selector
-    //       label="Medio de cobro"
-    //       name="medioCobro"
-    //       value={methodPayment}
-    //       leyendaSelector="Elegí cómo querés cobrar."
-    //       onChange={(e) =>
-    //         handleMedioCobro(
-    //           e,
-    //           setMethodPayment,
-    //           setTypePayment,
-    //           setCuotas,
-    //           setCantidadCuotas,
-    //           setTipoPago,
-    //           setTasa,
-    //           setTasaCuotas
-    //         )
-    //       }
-    //       options={paymentMethodOptions}
-    //     ></Selector> */}
-{/* 
-    //     <Selector
-    //       label="Medio de pago"
-    //       name="medioPago"
-    //       value={typePayment}
-    //       leyendaSelector="Elegí cómo te van a pagar."
-    //       onChange={(e) =>
-    //         handleMedioPago(
-    //           e,
-    //           opcionesPago,
-    //           setTypePayment,
-    //           paymentTypeOptions,
-    //           methodPayment,
-    //           setTipoPago,
-    //           setCuotas,
-    //           setCantidadCuotas,
-    //           setTasaCuotas,
-    //           setPlazoAcreditacion
-    //         )
-    //       }
-    //       options={typePaymentOptions}
-    //     ></Selector>
-     */}
+              // setCantidadCuotas,
+            )
+          }
+        ></Selector>
         {cuotas ? (
           <>
-          <h2>Hay cuotas</h2>
             <Selector
               label="Cantidad de cuotas"
               name="cantidadCuotas"
               value={cantidadCuotas}
+              valorInicial={cantidadCuotas}
               leyendaSelector="Las cuotas corren a cargo del cliente."
               onChange={(e) =>
                 handleCuotas(
                   e,
-                  comisionesPorcuotas
+                  comisionesPorcuotas,
+                  setTasaPagoCuotas
                   // feeUser,
                   // monto,
                   // setFinalAmount,
@@ -154,29 +118,31 @@ const MainSimuladorInputs = ({
               }
               options={installmentsOptions}
             />
-            {/* <Selector
+            <Selector
               label={"Plazo de pago"}
-              value={plazoAcreditacion}
+              name="PlazoAcreditacion"
+              valorInicial={"1"}
+              value={comisionesPorAcreditacion}
               onChange={(e) =>
                 handlePlazoAcreditacion(
                   e,
                   setPlazoAcreditacion,
-                  feeAcreditacion,
+                  comisionesPorAcreditacion,
                   setTasaPlazoAcreditacion
                 )
               }
               options={plazoAcreditacionOption}
               leyendaSelector="Elegí cómo recibís el dinero."
-            ></Selector> */}
+            ></Selector>
           </>
         ) : null}
-    {/* //     <hr></hr>
-    //     <DetalleInfo
-    //       primaryValue={`Recibís $` + receive}
-    //       className={"recibis"}
-    //     ></DetalleInfo>  */}
-        </div>
-    // </>
+        <hr className="mt-[20px]"></hr>
+        <DetalleInfo
+          primaryValue={`Recibís $` + montoARecibir}
+          className={"recibis"}
+        ></DetalleInfo>
+      </div>
+    </>
   );
 };
 export default MainSimuladorInputs;

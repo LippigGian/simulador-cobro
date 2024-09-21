@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Cards = ({children}) => {
+const Cards = ({ children, className ="" }) => {
     return (
-        <div className='flex flex-col bg-[#f5f5f5] border-2 rounded-[20px] p-8 gap-[15px] m-5'>
+        <div className={`flex flex-col items-center bg-[#f5f5f5] rounded-[20px] p-[32px] md:p-[40px] gap-[15px] ${className}`}>
 
-           {children}
+            {children}
         </div>
     );
 };
