@@ -19,7 +19,7 @@ function MainSimulador() {
   //Dinero que quiero cobrar
   const [monto, setMonto] = useState(0);
   //Metodo de cobro
-  const [typePayment, setTypePayment] = useState(null);
+  const [medioCobro, setMedioCobro] = useState(null);
   //Medio de pago
   const [medioPago, setMedioPago] = useState(null);
   //Dinero que voy a recibir
@@ -94,6 +94,7 @@ function MainSimulador() {
             setPlazoAcreditacion={setPlazoAcreditacion}
             montoARecibir={montoARecibir}
             setTasaComision={setTasaComision}
+            medioCobro={medioCobro}
           />
         </Cards>
         <Cards>

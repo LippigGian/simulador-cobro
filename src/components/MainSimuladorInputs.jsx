@@ -44,6 +44,7 @@ const MainSimuladorInputs = ({
   setPlazoAcreditacion,
   montoARecibir,
   setTasaComision,
+  medioCobro
 }) => {
   return (
     <>
@@ -55,6 +56,26 @@ const MainSimuladorInputs = ({
           monto={monto}
           onChange={(e) => handleMonto(e, setMonto, formatearNumeros)}
         />
+          {medioCobro &&  <Selector
+          label="Medio de cobro"
+          name="medioCobro"
+          options={tipoOpcionesMedioPago}
+          // onChange={(e) =>
+          //   handleMedioPago(
+          //     e,
+          //     tipoOpcionesMedioPago,
+          //     setMedioPago,
+          //     setLabelPago,
+          //     setCuotas,
+          //     setCantidadCuotas,
+          //     setTasaPagoCuotas,
+          //     setPlazoAcreditacion,
+          //     setTasaComision,
+          //     setTasaPlazoAcreditacion
+          //   )
+          // }
+        ></Selector>
+      }   
         <Selector
           label="Medio de pago"
           name="medioPago"
