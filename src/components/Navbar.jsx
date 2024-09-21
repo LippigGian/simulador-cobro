@@ -11,7 +11,6 @@ export default function Navbar() {
             alt=""
           />
         </div>
-
         <div className="flex items-center space-x-4">
           <a
             href="https://sipago.coop"

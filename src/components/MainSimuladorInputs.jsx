@@ -34,10 +34,6 @@ const MainSimuladorInputs = ({
   labelPago,
   setLabelPago,
   tipoOpcionesMedioPago,
-  // methodPayment,
-  // setMethodPayment,
-  // setTypePayment,
-  // setAmount,
   cuotas,
   setCuotas,
   cantidadCuotas,
@@ -48,18 +44,6 @@ const MainSimuladorInputs = ({
   setPlazoAcreditacion,
   montoARecibir,
   setTasaComision,
-  // setCantidadCuotas,
-  // typePayment,
-  // typePaymentOptions,
-  // cuotas,
-  // cantidadCuotas,
-  // setFinalAmount,
-  // setTasa,
-  // setTasaCuotas,
-  // receive,
-  // plazoAcreditacion,
-  // setPlazoAcreditacion,
-  // setTasaPlazoAcreditacion,
 }) => {
   return (
     <>
@@ -87,12 +71,6 @@ const MainSimuladorInputs = ({
               setPlazoAcreditacion,
               setTasaComision,
               setTasaPlazoAcreditacion
-              // opcionesPago,
-              // setTypePayment,
-              // tipoOpcionesMedioPago,
-              // methodPayment,
-
-              // setCantidadCuotas,
             )
           }
         ></Selector>
@@ -105,16 +83,7 @@ const MainSimuladorInputs = ({
               valorInicial={cantidadCuotas}
               leyendaSelector="Las cuotas corren a cargo del cliente."
               onChange={(e) =>
-                handleCuotas(
-                  e,
-                  comisionesPorcuotas,
-                  setTasaPagoCuotas
-                  // feeUser,
-                  // monto,
-                  // setFinalAmount,
-                  // setCantidadCuotas,
-                  // setTasaCuotas
-                )
+                handleCuotas(e, comisionesPorcuotas, setTasaPagoCuotas)
               }
               options={installmentsOptions}
             />

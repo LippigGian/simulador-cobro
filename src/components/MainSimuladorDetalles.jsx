@@ -1,6 +1,12 @@
 import DetalleInfo from "./DetalleInfo";
 import formatearNumeros from "../utils/formatearNumeros";
-const MainSimuladorDetalles = ({ montoARecibir, monto, comision, labelPago, tasaComision }) => {
+const MainSimuladorDetalles = ({
+  montoARecibir,
+  monto,
+  comision,
+  labelPago,
+  tasaComision,
+}) => {
   return (
     <>
       <div className="">
@@ -8,11 +14,10 @@ const MainSimuladorDetalles = ({ montoARecibir, monto, comision, labelPago, tasa
         <DetalleInfo
           title="Cobrás"
           primaryValue={monto !== "" ? "$" + formatearNumeros(monto) : "0"}
-         
         />
         <DetalleInfo
           title="Comisión"
-          primaryValue={"$" +comision}
+          primaryValue={"$" + comision}
           leyendaDetalle={
             labelPago === "" ? (
               <div className="gris">Tasa por método de pago: 0%</div>
@@ -21,17 +26,17 @@ const MainSimuladorDetalles = ({ montoARecibir, monto, comision, labelPago, tasa
             )
           }
         />
-
         <DetalleInfo
           title={"Recibis"}
           secondaryValue={" $" + montoARecibir}
           className={"recibis"}
         ></DetalleInfo>
-         <hr className="mt-[20px]"></hr>
+        <hr className="mt-[20px]"></hr>
         <DetalleInfo
           title={" "}
           leyendaDetalle={
-"Los valores presentados en esta simulación son estimativos y podrían no reflejar todos los impuestos aplicables a la transacción. Tampoco se han considerado posibles promociones o condiciones especiales que puedan afectar el precio final."          }
+            "Los valores presentados en esta simulación son estimativos y podrían no reflejar todos los impuestos aplicables a la transacción. Tampoco se han considerado posibles promociones o condiciones especiales que puedan afectar el precio final."
+          }
         ></DetalleInfo>
       </div>
     </>

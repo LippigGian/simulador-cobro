@@ -17,10 +17,7 @@ import formatearNumeros from "../utils/formatearNumeros";
 import Cards from "./Cards";
 function MainSimulador() {
   //Dinero que quiero cobrar
-  const [amount, setAmount] = useState(0);
   const [monto, setMonto] = useState(0);
-  //Metodo de pago
-  // const [methodPayment, setMethodPayment] = useState(null);
   //Metodo de cobro
   const [typePayment, setTypePayment] = useState(null);
   //Medio de pago
@@ -32,7 +29,6 @@ function MainSimulador() {
   //Comision en %
   const [tasaComision, setTasaComision] = useState(0);
   //Tipo de pago para mostrar detalle .label
-  // const [tipoPago, setTipoPago] = useState("");
   const [labelPago, setLabelPago] = useState("");
   //Plazo de acreditación
   const [plazoAcreditacion, setPlazoAcreditacion] = useState("1");
@@ -49,7 +45,7 @@ function MainSimulador() {
   //Monto final que pagará el cliente en cuotas con intereses
   const [montoPagoCuotas, setMontoPagoCuotas] = useState("");
 
-  // // Calcular el total automáticamente cuando cambian amount, paymentType, methodPayment
+  // Calcular el total automáticamente cuando cambian monto, plazo de acreditacion, medio de pago, tasa de plazo de acreditacion y tasa de pago en cuotas
   useEffect(() => {
     const total = calculoDetalle(
       monto,
@@ -99,7 +95,6 @@ function MainSimulador() {
             setTasaComision={setTasaComision}
           />
         </Cards>
-
         <Cards>
           <MainSimuladorDetalles
             montoARecibir={montoARecibir}
@@ -109,7 +104,6 @@ function MainSimulador() {
             tasaComision={tasaComision}
           />
         </Cards>
-
         {cantidadCuotas && cuotas ? (
           <div className="lg:col-span-2">
             <Cards className="flex flex-col items-center bg-[#f5f5f5] rounded-[20px] p-[32px] md:p-[20px] gap-[15px]">
