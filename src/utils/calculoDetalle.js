@@ -21,7 +21,7 @@ const calculoDetalle = (
     const comisionUsuario = parseFloat(
       (monto * (tasaPagoCuotas / 100)).toFixed(2)
     );
-    const totalAPagar = monto + comisionUsuario;
+    const totalAPagar = Number(monto + comisionUsuario);
     setMontoPagoCuotas(totalAPagar.toFixed(2));
 
     //Calculo comisiones de vendedor pago en cuotas

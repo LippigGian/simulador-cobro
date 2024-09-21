@@ -17,7 +17,7 @@ const MainSimuladorDetalles = ({
         />
         <DetalleInfo
           title="Comisión"
-          primaryValue={"$" + comision}
+          primaryValue={"$" + formatearNumeros(comision)}
           leyendaDetalle={
             labelPago === "" ? (
               <div className="gris">Tasa por método de pago: 0%</div>
@@ -28,7 +28,7 @@ const MainSimuladorDetalles = ({
         />
         <DetalleInfo
           title={"Recibis"}
-          secondaryValue={" $" + montoARecibir}
+          secondaryValue={" $" + formatearNumeros(montoARecibir)}
           className={"recibis"}
         ></DetalleInfo>
         <hr className="mt-[20px]"></hr>

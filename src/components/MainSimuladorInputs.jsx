@@ -107,7 +107,7 @@ const MainSimuladorInputs = ({
         ) : null}
         <hr className="mt-[20px]"></hr>
         <DetalleInfo
-          primaryValue={`Recibís $` + montoARecibir}
+          primaryValue={`Recibís $` +formatearNumeros(montoARecibir) }
           className={"recibis"}
         ></DetalleInfo>
       </div>

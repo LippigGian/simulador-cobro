@@ -43,7 +43,7 @@ function MainSimulador() {
   //Tasa de las cuotas en % para el cliente
   const [tasaPagoCuotas, setTasaPagoCuotas] = useState("0.00");
   //Monto final que pagará el cliente en cuotas con intereses
-  const [montoPagoCuotas, setMontoPagoCuotas] = useState("");
+  const [montoPagoCuotas, setMontoPagoCuotas] = useState(0);
 
   // Calcular el total automáticamente cuando cambian monto, plazo de acreditacion, medio de pago, tasa de plazo de acreditacion y tasa de pago en cuotas
   useEffect(() => {
@@ -69,6 +69,7 @@ function MainSimulador() {
 
   // Obtener las opciones de typePayment según el methodPayment seleccionado
   const tipoOpcionesMedioPago = OpcionesMediosPago || [];
+  const montoPagoCuotasNumber = Number(montoPagoCuotas);
   return (
     <div className="flex justify-center mb-[40px]">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-[25px] lg:gap-[15px] max-w-[864px] w-full m-[20px]">
@@ -109,7 +110,7 @@ function MainSimulador() {
             <Cards className="flex flex-col items-center bg-[#f5f5f5] rounded-[20px] p-[32px] md:p-[20px] gap-[15px]">
               <p>{`Conocé cuánto pagará en total tu cliente en cuotas. `}</p>
               <p>
-                {`Pagará $${montoPagoCuotas} (${tasaPagoCuotas}%) + IVA según la tasa de financiación (CFT).`}
+                {`Pagará $${formatearNumeros(montoPagoCuotasNumber)} (${tasaPagoCuotas}%) + IVA según la tasa de financiación (CFT).`}
               </p>
             </Cards>
           </div>
