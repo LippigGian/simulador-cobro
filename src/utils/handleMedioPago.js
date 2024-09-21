@@ -24,7 +24,6 @@ const handleMedioPago = (
     (option) => option.value === e)
   setLabelPago(selectedOption.label)
   // console.log("la opcion seleccionada es: " +selectedOption.label)
-  console.log(selectedOption.value)
   setMedioPago(selectedOption.value)
   // setTasaComision(0)
   
@@ -33,7 +32,7 @@ const handleMedioPago = (
   //   ? setCuotas(true)
   //   : setCuotas(false);
 
-selectedOption.isCreditCard ? console.log("es tarjeta de credito") : console.log("no es tarjeta de credito")
+
 
   selectedOption.isCreditCard
     ? (setCuotas(true) )

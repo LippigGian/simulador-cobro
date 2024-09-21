@@ -9,26 +9,11 @@ const calculoDetalle = (
   setMontoPagoCuotas,
   plazoAcreditacion,
   tasaPlazoAcreditacion,
-  // typePayment,
-  // methodPayment,
-  // feePayment,
-  // setTasa,
-  // tasaCuotas,
-  // setComision,
-  // setFinalAmount,
-  // plazoAcreditacion,
-  // feeAcreditacion,
-  // setPlazoAcreditacion,
-  // setTasaPlazoAcreditacion,
-  // cuotas,
-  // formatearNumeros,
-  // tipoPago
 ) => {
   const comisionFee = comisionesMedioPago[medioPago] || 0;
   const comisionesFeeFixed = (comisionFee*100).toFixed(2);
   
-  // console.log("comisiones medio de pago es: "+comisionesMedioPago[medioPago])
-  // console.log("medio de pago" + medioPago)
+
 
 
 
@@ -52,7 +37,6 @@ const calculoDetalle = (
 
   // Calculo comision dependiendo plazo acreditacion (tarjeta de crédito)
   if (medioPago == 3) {
-    console.log(tasaPagoCuotas)
     //Calculo comisiones de usuario pago en cuotas
     const comisionUsuario = parseFloat((monto * (tasaPagoCuotas / 100)).toFixed(2));
     const totalAPagar = monto + comisionUsuario; 
@@ -71,26 +55,7 @@ const calculoDetalle = (
     setTasaComision(comisionesFeeFixed);
     return totalARecibir  
 }
-  //   setTasa((keyAcreditacion * 100).toFixed(2));
-  //   nuevaComision = (keyAcreditacion * 100).toFixed(2);
-  //   feeAmount = amount * keyAcreditacion;
-  // } else {
-  //   nuevaComision = (fee * 100).toFixed(2);
-  //   feeAmount = amount * fee;
-  // }
-  // setTasa(nuevaComision);
 
-  // setComision(formatearNumeros(feeAmount));
-
-  //Calculo para comisión
-
-  // let totalAmount = 0;
-  // const tasa = tasaCuotas / 100;
-  // totalAmount = parseFloat(amount) - feeAmount;
-  // const finalAmountFormateado = formatearNumeros(amount * tasa + amount);
-  // setFinalAmount(finalAmountFormateado);
-  // const totalAmountFormateado = formatearNumeros(totalAmount);
-  // return totalAmountFormateado;
 };
 
 export default calculoDetalle;
